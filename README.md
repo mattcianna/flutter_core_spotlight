@@ -2,6 +2,8 @@
 
 Flutter plugin used for indexing items in Spotlight search on iOS.
 
+<img src="https://user-images.githubusercontent.com/10003040/124283078-c8a1a900-db4b-11eb-909a-9c6c8c611095.png" alt="Example Screenshot" width="200"/>
+
 Note: This plugin only works on iOS.
 
 ## Getting Started
