@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_core_spotlight/flutter_core_spotlight.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_native_alert/flutter_native_alert.dart';
 
 void main() {
