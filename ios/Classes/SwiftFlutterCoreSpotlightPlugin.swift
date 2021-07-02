@@ -62,10 +62,9 @@ public class SwiftFlutterCoreSpotlightPlugin: NSObject, FlutterPlugin {
   public func application(_ application: UIApplication,
                          continue userActivity: NSUserActivity,
                          restorationHandler: @escaping ([Any]) -> Void) -> Bool {
-    userActivity.resignCurrent()
-    userActivity.invalidate()
-    
     if userActivity.activityType == CSSearchableItemActionType {
+      userActivity.resignCurrent()
+      userActivity.invalidate()
       channel?.invokeMethod("onSearchableItemSelected",
                             arguments: [
                               "key": userActivity.activityType,
