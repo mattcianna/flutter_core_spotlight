@@ -1,6 +1,6 @@
-## 1.0.1
+## 1.0.3
 
-* Update description
+* Update README
 
 ## 1.0.0
 

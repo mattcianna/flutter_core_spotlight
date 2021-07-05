@@ -92,7 +92,7 @@ class FlutterCoreSpotlight {
   }
 
   Future<String> deleteSearchableItems(List<String> identifiers) async {
-    return await _channel.invokeMethod('delete_searchable_items');
+    return await _channel.invokeMethod('delete_searchable_items', identifiers);
   }
 
   void configure({required UserActivityCallback onSearchableItemSelected}) {

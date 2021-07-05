@@ -1,6 +1,6 @@
 name: flutter_core_spotlight
 description: Flutter plugin used for indexing items in Spotlight search on iOS.
-version: 1.0.1
+version: 1.0.4
 homepage: https://github.com/mattcianna/flutter_core_spotlight
 repository: https://github.com/mattcianna/flutter_core_spotlight
 
