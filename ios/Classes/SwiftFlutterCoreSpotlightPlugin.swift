@@ -72,6 +72,6 @@ public class SwiftFlutterCoreSpotlightPlugin: NSObject, FlutterPlugin {
                               "userInfo": userActivity.userInfo
                             ])
     }
-    return true
+    return false
   }
 }
