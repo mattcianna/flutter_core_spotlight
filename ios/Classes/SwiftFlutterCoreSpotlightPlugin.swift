@@ -78,6 +78,7 @@ public class SwiftFlutterCoreSpotlightPlugin: NSObject, FlutterPlugin {
                               "query": userActivity.userInfo?[CSSearchQueryString],
                               "userInfo": userActivity.userInfo
                             ])
+        return true
     }
     return false
   }
