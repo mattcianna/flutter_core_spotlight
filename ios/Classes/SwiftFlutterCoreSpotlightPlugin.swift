@@ -24,9 +24,15 @@ public class SwiftFlutterCoreSpotlightPlugin: NSObject, FlutterPlugin {
       }
       let searchableItems = arguments.map { itemMap -> CSSearchableItem in
         let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
-        attributeSet.title = itemMap["attributeTitle"] as? String
+        if let title = itemMap["attributeTitle"] as? String {
+            attributeSet.title = title
+            attributeSet.keywords = title.split(separator: " ", omittingEmptySubsequences: true).map {String($0)}
+        }
         attributeSet.contentDescription = itemMap["attributeDescription"] as? String
-        
+        if let url = itemMap["thumbnailURL"] as? String {
+            attributeSet.thumbnailData = try? Data(contentsOf: URL(fileURLWithPath: url))
+        }
+
         let item = CSSearchableItem(uniqueIdentifier: "\(itemMap["uniqueIdentifier"] as? String ?? "")",
                                     domainIdentifier: itemMap["domainIdentifier"] as? String ?? "",
                                     attributeSet: attributeSet)
@@ -69,6 +75,7 @@ public class SwiftFlutterCoreSpotlightPlugin: NSObject, FlutterPlugin {
                             arguments: [
                               "key": userActivity.activityType,
                               "uniqueIdentifier": userActivity.userInfo?[CSSearchableItemActivityIdentifier],
+                              "query": userActivity.userInfo?[CSSearchQueryString],
                               "userInfo": userActivity.userInfo
                             ])
     }

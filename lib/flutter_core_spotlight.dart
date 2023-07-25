@@ -11,6 +11,7 @@ class FlutterSpotlightItem {
     required this.domainIdentifier,
     required this.attributeTitle,
     required this.attributeDescription,
+    this.thumbnailURL,
   });
 
   factory FlutterSpotlightItem.fromJson(String source) =>
@@ -22,6 +23,7 @@ class FlutterSpotlightItem {
       domainIdentifier: map['domainIdentifier'],
       attributeTitle: map['attributeTitle'],
       attributeDescription: map['attributeDescription'],
+      thumbnailURL: map['thumbnailURL'],
     );
   }
 
@@ -29,6 +31,7 @@ class FlutterSpotlightItem {
   final String attributeTitle;
   final String domainIdentifier;
   final String uniqueIdentifier;
+  final String? thumbnailURL;
 
   Map<String, dynamic> toMap() {
     return {
@@ -36,6 +39,7 @@ class FlutterSpotlightItem {
       'domainIdentifier': domainIdentifier,
       'attributeTitle': attributeTitle,
       'attributeDescription': attributeDescription,
+      if (thumbnailURL != null) 'thumbnailURL': thumbnailURL,
     };
   }
 
@@ -46,6 +50,7 @@ class FlutterSpotlightUserActivity {
   FlutterSpotlightUserActivity({
     this.key,
     this.uniqueIdentifier,
+    this.query,
     this.userInfo,
   });
 
@@ -56,18 +61,21 @@ class FlutterSpotlightUserActivity {
     return FlutterSpotlightUserActivity(
       key: map['key'],
       uniqueIdentifier: map['uniqueIdentifier'],
+      query: map['query'],
       userInfo: Map<String, dynamic>.from(map['userInfo']),
     );
   }
 
   final String? key;
   final String? uniqueIdentifier;
+  final String? query;
   final Map<String, dynamic>? userInfo;
 
   Map<String, dynamic> toMap() {
     return {
       'key': key,
       'uniqueIdentifier': uniqueIdentifier,
+      'query': query,
       'userInfo': userInfo,
     };
   }
